@@ -88,9 +88,12 @@ namespace ReciepeApp
 
             public Recipe()
             {
-                // Initialize arrays
+                
             }
-
+            /// <summary>
+            /// this is the add recipe method and it has error handling to prevent the app from crashing and to guide the user when
+            /// they make a mistake
+            /// </summary>
             public void AddRecipe()
             {
                 Console.WriteLine("Enter recipe name:");
@@ -171,7 +174,9 @@ namespace ReciepeApp
 
                 Console.WriteLine("Your recipe has been added!");
             }
-
+            /// <summary>
+            /// this method is just there to display the arrays and there is some lines to separathe the content
+            /// </summary>
             public void DisplayRecipe()
             {
                 if (recipeName == null)
@@ -202,7 +207,9 @@ namespace ReciepeApp
 
                 }
             }
-
+            /// <summary>
+            /// for scaling up i used a switch case to avoid having the user make mistakes or enter whatever they want
+            /// </summary>
             public void ScaleRecipe()
             {
                 bool scaling = true;
@@ -255,6 +262,9 @@ namespace ReciepeApp
 
             }
 
+            /// <summary>
+            /// since the scale up alters the quantities we are able to rest them using the original quantities array
+            /// </summary>
             public void ResetQuantities()
             {
                 for (int i = 0; i < quantities.Length; i++)
@@ -265,6 +275,10 @@ namespace ReciepeApp
                 Console.WriteLine("Quantities reset to original values.");
             }
 
+            /// <summary>
+            /// buy setting the array values to null we are able to start all over and can fill the array all over again
+            /// after clearing the data you get a message confirming that the data is cleared
+            /// </summary>
             public void ClearRecipe()
             {
 
