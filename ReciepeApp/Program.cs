@@ -95,13 +95,27 @@ namespace ReciepeApp
             {
                 Console.WriteLine("Enter recipe name:");
                 recipeName = Console.ReadLine();
+                Console.WriteLine("\n");
 
-                Console.WriteLine("Enter the number of ingredients:");
-                int numIngredients = int.Parse(Console.ReadLine());
+
+                int numIngredients;
+                while (true)
+                {
+                    Console.WriteLine("Enter the number of ingredients:");
+                    string input = Console.ReadLine();
+                    if (int.TryParse(input, out numIngredients) && numIngredients > 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a positive integer for the number of ingredients.");
+                    }
+                }
 
                 ingredients = new string[numIngredients];
                 quantities = new double[numIngredients];
-                originalQuantities = new double[numIngredients]; // Initialize originalQuantities array
+                originalQuantities = new double[numIngredients];
                 units = new string[numIngredients];
 
                 for (int i = 0; i < numIngredients; i++)
@@ -109,16 +123,41 @@ namespace ReciepeApp
                     Console.WriteLine($"Enter ingredient #{i + 1}:");
                     ingredients[i] = Console.ReadLine();
 
-                    Console.WriteLine($"Enter quantity of {ingredients[i]}:");
-                    quantities[i] = double.Parse(Console.ReadLine());
-                    originalQuantities[i] = quantities[i]; // Store original quantity
+                    double quantity;
+                    while (true)
+                    {
+                        Console.WriteLine($"Enter quantity of {ingredients[i]}:");
+                        string input = Console.ReadLine();
+                        if (double.TryParse(input, out quantity) && quantity > 0)
+                        {
+                            quantities[i] = quantity;
+                            originalQuantities[i] = quantity;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please enter a positive number for the quantity.");
+                        }
+                    }
 
                     Console.WriteLine($"Enter unit of measurement for {ingredients[i]}:");
                     units[i] = Console.ReadLine();
                 }
 
-                Console.WriteLine("Enter the number of steps:");
-                int numSteps = int.Parse(Console.ReadLine());
+                int numSteps;
+                while (true)
+                {
+                    Console.WriteLine("Enter the number of steps:");
+                    string input = Console.ReadLine();
+                    if (int.TryParse(input, out numSteps) && numSteps > 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a positive integer for the number of steps.");
+                    }
+                }
 
                 steps = new string[numSteps];
 
@@ -133,25 +172,33 @@ namespace ReciepeApp
 
             public void DisplayRecipe()
             {
-                Console.WriteLine($"Recipe: {recipeName}");
-
-                Console.WriteLine("\nIngredients:");
-                for (int i = 0; i < ingredients.Length; i++)
+                if (recipeName == null)
                 {
-                    Console.WriteLine($"{i + 1}. {quantities[i]} {units[i]} of {ingredients[i]}");
+                    Console.WriteLine("\nThere is currently no recipe to display :(\n"); return;
                 }
-
-                Console.WriteLine("\nSteps:");
-                for (int i = 0; i < steps.Length; i++)
+                else
                 {
-                    Console.WriteLine($"{i + 1}. {steps[i]}");
+                    Console.WriteLine($"Recipe: {recipeName}");
+
+                    Console.WriteLine("\nIngredients:");
+                    for (int i = 0; i < ingredients.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {quantities[i]} {units[i]} of {ingredients[i]}");
+                    }
+
+                    Console.WriteLine("\nSteps:");
+                    for (int i = 0; i < steps.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {steps[i]}");
+                    }
                 }
             }
 
             public void ScaleRecipe()
             {
                 bool scaling = true;
-                Console.WriteLine("Select by what value you would like to scale your recipe:\n" +
+                Console.WriteLine(
+                    "Select by what value you would like to scale your recipe:\n" +
                     "1. 0.5\n" +
                     "2. 2\n" +
                     "3. 3\n" +
