@@ -74,26 +74,7 @@ namespace ReciepeApp
 
 
 
-            /*Console.WriteLine("ENTER NUMBER OF RECIEPE");
-            Console.WriteLine("ENTER NUMBER OF INGREDIENTS");
-            Console.WriteLine("ENTER THE INGREDIENTS");
-            Console.WriteLine("ENTER QUANTITIES OF INGREDIENTS");
-            Console.WriteLine("ENTER NUMBER OF STEPS");
-            Console.WriteLine("ENTER THE STEP IN DETAIL");
-
-
-
-
-            Console.WriteLine("scale reciepe by 0.5");
-            Console.WriteLine("scale reciepe by 2");
-            Console.WriteLine("scale reciepe by 3");
-
-
-
-
-
-            Console.ReadLine();
-            Console.ReadKey();*/
+            
 
         }
         class Recipe
@@ -240,7 +221,7 @@ namespace ReciepeApp
             public void ClearRecipe()
             {
 
-                Array.Clear(recipeName);
+                recipeName= null;
                 ingredients = null;
                 quantities = null;
                 units = null;
