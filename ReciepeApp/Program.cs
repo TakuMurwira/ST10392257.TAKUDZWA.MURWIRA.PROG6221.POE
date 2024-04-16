@@ -196,16 +196,7 @@ namespace ReciepeApp
                             break;
                     }
                 }
-                /*Console.WriteLine("Enter scale factor (0.5, 2, or 3):");
-                double scaleFactor = double.Parse(Console.ReadLine());
-
-                // Scaling the quantities of ingredients
-                for (int i = 0; i < quantities.Length; i++)
-                {
-                    quantities[i] *= scaleFactor;
-                }
-
-                Console.WriteLine($"Recipe scaled up by a factor of {scaleFactor}!");*/
+                
             }
 
             public void ResetQuantities()
