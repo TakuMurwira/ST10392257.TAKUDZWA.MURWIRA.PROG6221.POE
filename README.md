@@ -52,6 +52,7 @@ HOW TO USE
 -Ending the Session:
   -Select option 7 from the menu to end the session and exit the application.
 
+GITHUB LINK:https://github.com/TakuMurwira/ST10392257.TAKUDZWA.MURWIRA.PROG6221.POE.git 
 
 NOTES
 
