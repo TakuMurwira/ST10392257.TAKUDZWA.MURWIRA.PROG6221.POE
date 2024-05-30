@@ -21,7 +21,7 @@ namespace ReciepeApp
 
         public Ingredient()
         {
-            originalQuantity = Quantity;
+            Quantity=originalQuantity ;
         }
 
         public void ScaleQuantity(double factor)

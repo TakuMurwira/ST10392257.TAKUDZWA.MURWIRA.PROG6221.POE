@@ -13,7 +13,10 @@ namespace RecipeApp
         {
             RecipeManager recipeManager = new RecipeManager();
             bool appRunning = true;
-            Console.WriteLine("-----WELCOME TO THE RECIPE APPLICATION-----\n");
+            Console.WriteLine("===============================================================");
+            Console.WriteLine("------------WELCOME TO THE RECIPE APPLICATION------------------");
+            Console.WriteLine("===============================================================");
+
 
             while (appRunning)
             {
@@ -24,6 +27,7 @@ namespace RecipeApp
                 Console.WriteLine("5. Reset quantities to original values");
                 Console.WriteLine("6. Clear recipe");
                 Console.WriteLine("7. End session\n");
+                Console.WriteLine("===============================================================\n");
 
                 string option = Console.ReadLine();
 

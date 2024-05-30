@@ -57,16 +57,22 @@ namespace ReciepeApp
         {
             if (!recipes.Any())
             {
-                Console.WriteLine("No recipes available.");
+                Console.WriteLine("\nNo recipes available.\n");
                 return;
             }
 
-            Console.WriteLine("List of all recipes (alphabetical order):");
+            Console.WriteLine("===============================================================");
+            Console.WriteLine("\nList of all recipes (alphabetical order):");
+            Console.WriteLine("---------------------------------------------------------------");
+
+
             var sortedRecipes = recipes.OrderBy(r => r.Name).ToList();
             foreach (var recipe in sortedRecipes)
             {
                 Console.WriteLine(recipe.Name);
             }
+            Console.WriteLine("---------------------------------------------------------------");
+
         }
 
         public void ScaleRecipe()

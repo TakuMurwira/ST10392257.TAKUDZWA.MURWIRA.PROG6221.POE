@@ -27,24 +27,27 @@ namespace ReciepeApp
 
         public void AddRecipe()
         {
+            Console.WriteLine("\n===============================================================");
             Console.WriteLine("Enter recipe name:");
+            
+
             Name = Console.ReadLine();
 
-            int numIngredients = GetValidNumber("Enter the number of ingredients (number only):");
+            int numIngredients = GetValidNumber("\nEnter the number of ingredients (number only):");
 
             for (int i = 0; i < numIngredients; i++)
             {
                 Console.WriteLine($"\nEnter ingredient #{i + 1} (name of the ingredient):");
                 string ingredientName = Console.ReadLine();
 
-                double quantity = GetValidDouble($"Enter quantity of {ingredientName} (number only):");
+                double quantity = GetValidDouble($"\nEnter quantity of {ingredientName} (number only):");
 
-                Console.WriteLine($"Enter unit of measurement for {ingredientName}:");
+                Console.WriteLine($"\nEnter unit of measurement for {ingredientName}:");
                 string unit = Console.ReadLine();
 
-                double calories = GetValidDouble($"Enter the number of calories for {ingredientName} (number only):");
+                double calories = GetValidDouble($"\nEnter the number of calories for {ingredientName} (number only):");
 
-                Console.WriteLine($"Enter the food group for {ingredientName}:");
+                Console.WriteLine($"\nEnter the food group for {ingredientName}:");
                 string foodGroup = Console.ReadLine();
 
                 ingredients.Add(new Ingredient
@@ -59,7 +62,7 @@ namespace ReciepeApp
                 totalCalories += calories;
             }
 
-            int numSteps = GetValidNumber("Enter the number of steps (number only):");
+            int numSteps = GetValidNumber("\nEnter the number of steps (number only):");
 
             for (int i = 0; i < numSteps; i++)
             {
@@ -67,10 +70,13 @@ namespace ReciepeApp
                 steps.Add(Console.ReadLine());
             }
 
-            Console.WriteLine("Your recipe has been added!");
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("\nYour recipe has been added!");
+            Console.WriteLine("---------------------------------------------------------------");
+
             if (totalCalories > 300)
             {
-                CalorieNotification?.Invoke("Warning: The total calories of this recipe exceed 300.");
+                CalorieNotification?.Invoke("\nWarning: The total calories of this recipe exceed 300.");
             }
         }
 
@@ -79,28 +85,36 @@ namespace ReciepeApp
             Console.WriteLine("===============================================================");
             Console.WriteLine($"Recipe: {Name}");
             Console.WriteLine("===============================================================");
+ 
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("\nIngredients:\n");
+           
 
-            Console.WriteLine("\nIngredients:");
             foreach (var ingredient in ingredients)
             {
                 Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})");
             }
-            Console.WriteLine($"Total Calories: {totalCalories}");
-            Console.WriteLine("===============================================================");
-            Console.WriteLine("===============================================================");
+            Console.WriteLine("---------------------------------------------------------------");
 
-            Console.WriteLine("\nSteps:");
+            Console.WriteLine($"Total Calories: {totalCalories}");
+            Console.WriteLine("---------------------------------------------------------------");
+
+
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("\nSteps:\n");
             for (int i = 0; i < steps.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {steps[i]}");
             }
+        
+
             Console.WriteLine("===============================================================");
         }
 
         public void ScaleRecipe()
         {
             Console.WriteLine(
-                "Select by what value you would like to scale your recipe:\n" +
+                "Select by what value you would like to scale your recipe:\n\n" +
                 "1. 0.5\n" +
                 "2. 2\n" +
                 "3. 3\n" +
@@ -125,11 +139,11 @@ namespace ReciepeApp
                         scaling = false;
                         break;
                     case "4":
-                        Console.WriteLine("You are now closing the scaling option");
+                        Console.WriteLine("\nYou are now closing the scaling option");
                         scaling = false;
                         break;
                     default:
-                        Console.WriteLine("Invalid option. Please enter 1, 2, 3, or 4.");
+                        Console.WriteLine("\nInvalid option. Please enter 1, 2, 3, or 4.");
                         scale = Console.ReadLine();
                         break;
                 }
@@ -142,8 +156,10 @@ namespace ReciepeApp
             {
                 ingredient.ResetQuantity();
             }
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("\nQuantities reset to original values.");
+            Console.WriteLine("---------------------------------------------------------------");
 
-            Console.WriteLine("Quantities reset to original values.");
         }
 
         private void ScaleQuantities(double factor)
@@ -155,10 +171,10 @@ namespace ReciepeApp
                 totalCalories += ingredient.Calories;
             }
 
-            Console.WriteLine($"Recipe scaled by a factor of {factor}.");
+            Console.WriteLine($"\nRecipe scaled by a factor of {factor}.");
             if (totalCalories > 300)
             {
-                CalorieNotification?.Invoke("Warning: The total calories of this recipe exceed 300.");
+                CalorieNotification?.Invoke("\nWarning: The total calories of this recipe exceed 300.\n");
             }
         }
 
@@ -174,7 +190,7 @@ namespace ReciepeApp
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a positive number.");
+                    Console.WriteLine("\nInvalid input. Please enter a positive number.\n");
                 }
             }
             return number;
@@ -192,7 +208,7 @@ namespace ReciepeApp
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a positive number.");
+                    Console.WriteLine("\nInvalid input. Please enter a positive number.\n");
                 }
             }
             return number;
