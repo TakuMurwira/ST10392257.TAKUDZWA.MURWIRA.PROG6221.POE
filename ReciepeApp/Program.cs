@@ -28,7 +28,7 @@ namespace RecipeApp
                 Console.WriteLine("4. Scale recipe up/down");
                 Console.WriteLine("5. Reset quantities to original values");
                 Console.WriteLine("6. Clear recipe");
-                Console.WriteLine("7. End session\n");               
+                Console.WriteLine("7. End session\n");
                 Console.ResetColor();
                 Console.WriteLine("===============================================================\n");
 

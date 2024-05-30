@@ -155,7 +155,7 @@ namespace RecipeApp
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(
-                "Select by what value you would like to scale your recipe:\n\n"); 
+                "Select by what value you would like to scale your recipe:\n\n");
             Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;

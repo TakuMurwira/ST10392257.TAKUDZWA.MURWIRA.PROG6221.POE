@@ -198,8 +198,8 @@ namespace RecipeApp
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Enter the name of the recipe:");
             Console.ResetColor();
-            return 
-                
+            return
+
             Console.ReadLine();
         }
     }
