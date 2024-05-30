@@ -1,4 +1,4 @@
-﻿using ReciepeApp;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,22 +14,27 @@ namespace RecipeApp
             RecipeManager recipeManager = new RecipeManager();
             bool appRunning = true;
             Console.WriteLine("===============================================================");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("------------WELCOME TO THE RECIPE APPLICATION------------------");
+            Console.ResetColor();
             Console.WriteLine("===============================================================");
-
 
             while (appRunning)
             {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("\n1. Add recipe");
                 Console.WriteLine("2. Display recipe");
                 Console.WriteLine("3. List all recipes");
                 Console.WriteLine("4. Scale recipe up/down");
                 Console.WriteLine("5. Reset quantities to original values");
                 Console.WriteLine("6. Clear recipe");
-                Console.WriteLine("7. End session\n");
+                Console.WriteLine("7. End session\n");               
+                Console.ResetColor();
                 Console.WriteLine("===============================================================\n");
 
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 string option = Console.ReadLine();
+                Console.ResetColor();
 
                 switch (option)
                 {
@@ -55,14 +60,14 @@ namespace RecipeApp
                         appRunning = false;
                         break;
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice. Please enter a valid option.");
+                        Console.ResetColor();
                         break;
                 }
             }
         }
     }
-
-   
 }
 
 
